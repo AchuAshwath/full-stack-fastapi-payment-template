@@ -1,260 +1,328 @@
 # Full Stack FastAPI Payment Template
 
-<a href="https://github.com/fastapi/full-stack-fastapi-template/actions?query=workflow%3ATest" target="_blank"><img src="https://github.com/fastapi/full-stack-fastapi-template/workflows/Test/badge.svg" alt="Test"></a>
-<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/full-stack-fastapi-template" target="_blank"><img src="https://coverage-badge.samuelcolvin.workers.dev/fastapi/full-stack-fastapi-template.svg" alt="Coverage"></a>
+[![Test](https://github.com/fastapi/full-stack-fastapi-template/workflows/Test/badge.svg)](https://github.com/fastapi/full-stack-fastapi-template/actions?query=workflow%3ATest)
+[![Coverage](https://coverage-badge.samuelcolvin.workers.dev/fastapi/full-stack-fastapi-template.svg)](https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/full-stack-fastapi-template)
 
-This repository is a fork of the official Full Stack FastAPI Template with a focused goal: to provide a production-ready starting point that adds payments and billing capabilities to the original template.
+A **production-ready Full Stack FastAPI template** with integrated **Razorpay payment gateway**, ready-to-use checkout pages, payment analytics, and complete payment flow management.
 
-Goal: extend the upstream template with common payment patterns (one-time payments, subscriptions, invoices, webhook handling, and example frontend flows) so teams can bootstrap apps that require monetization without wiring payments from scratch.
+> 🚀 **Bootstrap your monetized app in minutes** - Everything you need for payments is already integrated!
 
-This project remains compatible with the parent template and intends to track upstream improvements where possible. Parent (upstream) repository: https://github.com/fastapi/full-stack-fastapi-template
+## ✨ Features
 
-## Progress / Features in development
+### 💳 Complete Payment Integration
+- **Razorpay Gateway Integration** - One-time payments with secure signature verification
+- **Webhook Handling** - Real-time payment status updates
+- **Payment Analytics Dashboard** - Track payments, success rates, and revenue
+- **Checkout UI** - Beautiful, responsive checkout page with Razorpay modal
+- **Payment History** - Complete order and payment tracking in database
 
-The sections below list the main payment-related features being added to this fork. Items marked with a checkbox indicate progress; this list will be kept up-to-date as work advances.
+### 🎨 Modern Tech Stack
+- **Backend**: FastAPI + SQLModel + PostgreSQL
+- **Frontend**: React + TypeScript + Chakra UI
+- **DevOps**: Docker Compose with hot-reload
+- **Testing**: Pytest + Playwright E2E tests
+- **Deployment**: Production-ready with Traefik & HTTPS
 
-- [x] Repository fork and integration tests (keep upstream compatibility)
-- [x] Example Stripe integration (checkout session, client/server flow)
-- [ ] Webhook handlers with secure signature verification
-- [ ] Subscription models and billing webhooks (plans, trials)
-- [ ] Invoice generation and management endpoints
-- [ ] Frontend payment UI components (checkout, billing settings, invoices)
-- [ ] End-to-end tests for payment flows (Playwright)
-- [ ] Example environment configuration and deployment notes for production payments
+### 🔐 Security & Authentication
+- JWT authentication
+- Secure password hashing
+- Email-based password recovery
+- Role-based access control
+- Payment signature verification
 
-If you'd like to contribute or request a specific payment provider or feature, open an issue or submit a pull request.
+## 📸 Screenshots
 
-## Technology Stack and Features
+### Payment Checkout Dashboard
 
-- ⚡ [**FastAPI**](https://fastapi.tiangolo.com) for the Python backend API.
-    - 🧰 [SQLModel](https://sqlmodel.tiangolo.com) for the Python SQL database interactions (ORM).
-    - 🔍 [Pydantic](https://docs.pydantic.dev), used by FastAPI, for the data validation and settings management.
-    - 💾 [PostgreSQL](https://www.postgresql.org) as the SQL database.
-- 🚀 [React](https://react.dev) for the frontend.
-    - 💃 Using TypeScript, hooks, Vite, and other parts of a modern frontend stack.
-    - 🎨 [Chakra UI](https://chakra-ui.com) for the frontend components.
-    - 🤖 An automatically generated frontend client.
-    - 🧪 [Playwright](https://playwright.dev) for End-to-End testing.
-    - 🦇 Dark mode support.
-- 🐋 [Docker Compose](https://www.docker.com) for development and production.
-- 🔒 Secure password hashing by default.
-- 🔑 JWT (JSON Web Token) authentication.
-- 📫 Email based password recovery.
-- ✅ Tests with [Pytest](https://pytest.org).
-- 📞 [Traefik](https://traefik.io) as a reverse proxy / load balancer.
-- 🚢 Deployment instructions using Docker Compose, including how to set up a frontend Traefik proxy to handle automatic HTTPS certificates.
-- 🏭 CI (continuous integration) and CD (continuous deployment) based on GitHub Actions.
+![Payment Checkout](img/checkout.png)
 
-### Dashboard Login
+Complete payment dashboard with integrated checkout form and payment analytics. Users can make payments and view their payment history all in one place.
 
-[![API docs](img/login.png)](https://github.com/fastapi/full-stack-fastapi-template)
+### Razorpay Integration
 
-### Dashboard - Admin
+![Razorpay Integration](img/razorpay.png)
 
-[![API docs](img/dashboard.png)](https://github.com/fastapi/full-stack-fastapi-template)
+Seamless Razorpay checkout modal integration with secure payment processing.
 
-### Dashboard - Create User
+### Dashboard Features
 
-[![API docs](img/dashboard-create.png)](https://github.com/fastapi/full-stack-fastapi-template)
+<details>
+<summary>View all dashboard screenshots</summary>
 
-### Dashboard - Items
+![Login](img/login.png)
+![Dashboard](img/dashboard.png)
+![Create User](img/dashboard-create.png)
+![Items](img/dashboard-items.png)
+![User Settings](img/dashboard-user-settings.png)
+![Dark Mode](img/dashboard-dark.png)
+![API Docs](img/docs.png)
 
-[![API docs](img/dashboard-items.png)](https://github.com/fastapi/full-stack-fastapi-template)
+</details>
 
-### Dashboard - User Settings
+## 🚀 Quick Start
 
-[![API docs](img/dashboard-user-settings.png)](https://github.com/fastapi/full-stack-fastapi-template)
+### Prerequisites
 
-### Dashboard - Dark Mode
+- [Docker](https://www.docker.com/) and Docker Compose
+- [Git](https://git-scm.com/)
 
-[![API docs](img/dashboard-dark.png)](https://github.com/fastapi/full-stack-fastapi-template)
-
-### Interactive API Documentation
-
-[![API docs](img/docs.png)](https://github.com/fastapi/full-stack-fastapi-template)
-
-## How To Use It
-
-You can **just fork or clone** this repository and use it as is.
-
-✨ It just works. ✨
-
-### How to Use a Private Repository
-
-If you want to have a private repository, GitHub won't allow you to simply fork it as it doesn't allow changing the visibility of forks.
-
-But you can do the following:
-
-- Create a new GitHub repo, for example `my-full-stack`.
-- Clone this repository manually, set the name with the name of the project you want to use, for example `my-full-stack`:
+### 1. Clone the Repository
 
 ```bash
-git clone git@github.com:fastapi/full-stack-fastapi-template.git my-full-stack
+git clone https://github.com/yourusername/full-stack-fastapi-payment-template.git
+cd full-stack-fastapi-payment-template
 ```
 
-- Enter into the new directory:
+### 2. Configure Environment Variables
+
+Copy `.env` and update the following:
 
 ```bash
-cd my-full-stack
+# Security Keys (generate with: python -c "import secrets; print(secrets.token_urlsafe(32))")
+SECRET_KEY=your-secret-key-here
+POSTGRES_PASSWORD=your-db-password
+FIRST_SUPERUSER_PASSWORD=admin-password
+
+# Razorpay Payment Gateway
+RAZORPAY_KEY_ID=rzp_test_xxxxxxxxxxxxx
+RAZORPAY_KEY_SECRET=your-razorpay-key-secret
+RAZORPAY_WEBHOOK_SECRET=your-webhook-secret  # For production webhooks
 ```
 
-- Set the new origin to your new repository, copy it from the GitHub interface, for example:
+### 3. Start the Application
 
 ```bash
-git remote set-url origin git@github.com:octocat/my-full-stack.git
+docker compose watch
 ```
 
-- Add this repo as another "remote" to allow you to get updates later:
+This will:
+- Start all services (backend, frontend, database)
+- Run database migrations automatically
+- Enable hot-reload for development
+
+### 4. Access the Application
+
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
+- **Checkout Page**: http://localhost:5173/checkout
+
+### 5. Create Your First User
+
+1. Go to http://localhost:5173/signup
+2. Create an account
+3. Navigate to `/checkout` to test payments
+
+## 💳 Razorpay Setup
+
+### Get Your API Keys
+
+1. **Sign Up**: Visit [Razorpay Dashboard](https://dashboard.razorpay.com/signup)
+2. **Get Test Keys** (no KYC required):
+   - Log in to [Razorpay Dashboard](https://dashboard.razorpay.com/)
+   - Go to **Settings** → **API Keys**
+   - Copy your **Key ID** (starts with `rzp_test_`) and **Key Secret**
+3. **Add to `.env`**:
+   ```bash
+   RAZORPAY_KEY_ID=rzp_test_your_key_id
+   RAZORPAY_KEY_SECRET=your_key_secret
+   ```
+
+### Test Payments
+
+Use Razorpay test cards:
+- **Success**: `4111 1111 1111 1111` (any CVV, any future expiry)
+- **Failure**: `4000 0000 0000 0002`
+- See [Razorpay Test Cards](https://razorpay.com/docs/payments/test-cards/) for more options
+
+### Production Setup
+
+1. Complete KYC verification in Razorpay Dashboard
+2. Switch to **Live Mode**
+3. Generate Live API keys
+4. Update `.env` with live keys
+5. Configure webhooks (see [backend/README.md](./backend/README.md#webhook-setup-for-local-development))
+
+## 📚 Documentation
+
+### Core Documentation
+- **[Development Guide](./development.md)** - Local development with Docker Compose
+- **[Deployment Guide](./deployment.md)** - Production deployment instructions
+- **[Backend README](./backend/README.md)** - Backend development, migrations, and payment API details
+- **[Frontend README](./frontend/README.md)** - Frontend development guide
+
+### Payment Integration
+- **Setup Instructions**: See [Payment Integration (Razorpay)](#-razorpay-setup) above
+- **API Endpoints**: See [backend/README.md](./backend/README.md#payment-api-endpoints)
+- **Database Models**: See [backend/README.md](./backend/README.md#database-migrations-with-alembic)
+- **Webhook Configuration**: See [backend/README.md](./backend/README.md#webhook-setup-for-local-development)
+
+## 🏗️ Project Structure
+
+```
+.
+├── backend/              # FastAPI backend
+│   ├── app/
+│   │   ├── api/         # API routes (including payments)
+│   │   ├── models.py    # Database models (Order, Payment)
+│   │   ├── crud.py      # Database operations
+│   │   ├── services/    # Business logic (Razorpay service)
+│   │   └── alembic/     # Database migrations
+│   └── README.md        # Backend documentation
+├── frontend/            # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── Payments/  # Payment UI components
+│   │   ├── routes/       # Application routes
+│   │   └── client/       # Auto-generated API client
+│   └── README.md        # Frontend documentation
+├── img/                 # Screenshots and images
+├── docker-compose.yml   # Docker services configuration
+├── development.md       # Development guide
+└── deployment.md        # Deployment guide
+```
+
+## 🎯 What's Included
+
+### Backend Features
+
+✅ **Payment API Endpoints**
+- Create Razorpay orders
+- Verify payment signatures
+- Handle webhooks
+- List user orders
+- Get order details
+
+✅ **Database Models**
+- `Order` - Payment orders with Razorpay integration
+- `Payment` - Payment records linked to orders
+- Automatic migrations with Alembic
+
+✅ **Services**
+- Razorpay service for API interactions
+- Secure signature verification
+- Payment capture handling
+
+### Frontend Features
+
+✅ **Payment Components**
+- Checkout page with integrated dashboard
+- Payment success/failure pages
+- Payment analytics dashboard
+- Recent orders table
+
+✅ **UI/UX**
+- Modern blue theme
+- Responsive design
+- Sidebar navigation
+- Real-time payment updates
+
+## 🔄 Payment Flow
+
+1. **User initiates payment** → Enters amount on `/checkout` page
+2. **Backend creates order** → Saves to database, returns Razorpay order ID
+3. **Razorpay modal opens** → User completes payment
+4. **Payment verification** → Frontend sends payment details to backend
+5. **Signature verification** → Backend verifies Razorpay signature
+6. **Database update** → Order and payment records updated
+7. **Success redirect** → User sees payment confirmation and analytics
+8. **Webhook update** → Real-time status updates from Razorpay (optional)
+
+## 🧪 Testing
+
+### Run Backend Tests
 
 ```bash
-git remote add upstream git@github.com:fastapi/full-stack-fastapi-template.git
+docker compose exec backend bash scripts/test.sh
 ```
 
-- Push the code to your new repository:
+### Run Frontend E2E Tests
 
 ```bash
-git push -u origin master
+docker compose exec playwright npm run test
 ```
 
-### Update From the Original Template
+## 📝 Database Migrations
 
-After cloning the repository, and after doing changes, you might want to get the latest changes from this original template.
+This project uses Alembic for database migrations. Migrations run automatically on startup.
 
-- Make sure you added the original repository as a remote, you can check it with:
+**Quick Commands:**
+```bash
+# Check migration status
+docker compose exec backend bash -c "cd /app && alembic current"
+
+# Create new migration
+docker compose exec backend bash -c "cd /app && alembic revision --autogenerate -m 'Description'"
+
+# Apply migrations
+docker compose exec backend bash -c "cd /app && alembic upgrade head"
+```
+
+**For detailed migration guide**, see [backend/README.md](./backend/README.md#database-migrations-with-alembic).
+
+## 🛠️ Development
+
+### Start Development Environment
 
 ```bash
-git remote -v
-
-origin    git@github.com:octocat/my-full-stack.git (fetch)
-origin    git@github.com:octocat/my-full-stack.git (push)
-upstream    git@github.com:fastapi/full-stack-fastapi-template.git (fetch)
-upstream    git@github.com:fastapi/full-stack-fastapi-template.git (push)
+docker compose watch
 ```
 
-- Pull the latest changes without merging:
+This enables:
+- Hot-reload for backend and frontend
+- Auto-regeneration of API client
+- Live migration application
 
-```bash
-git pull --no-commit upstream master
-```
+### Backend Development
 
-This will download the latest changes from this template without committing them, that way you can check everything is right before committing.
+See [backend/README.md](./backend/README.md) for:
+- Local development setup
+- Running tests
+- Creating migrations
+- Payment API details
 
-- If there are conflicts, solve them in your editor.
+### Frontend Development
 
-- Once you are done, commit the changes:
+See [frontend/README.md](./frontend/README.md) for:
+- Local development
+- Component structure
+- API client generation
 
-```bash
-git merge --continue
-```
+## 🌐 API Documentation
 
-### Configure
+Once running, access interactive API docs:
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
 
-You can then update configs in the `.env` files to customize your configurations.
+All payment endpoints are documented and can be tested directly from the Swagger UI.
 
-Before deploying it, make sure you change at least the values for:
+## 📦 What You Get
 
-- `SECRET_KEY`
-- `FIRST_SUPERUSER_PASSWORD`
-- `POSTGRES_PASSWORD`
+- ✅ Complete payment integration (Razorpay)
+- ✅ User authentication & authorization
+- ✅ Admin dashboard
+- ✅ Payment analytics
+- ✅ Webhook handling
+- ✅ Database migrations
+- ✅ API documentation
+- ✅ E2E tests
+- ✅ Production deployment config
+- ✅ Docker Compose setup
+- ✅ CI/CD ready
 
-You can (and should) pass these as environment variables from secrets.
+## 🤝 Contributing
 
-Read the [deployment.md](./deployment.md) docs for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### Generate Secret Keys
+## 📄 License
 
-Some environment variables in the `.env` file have a default value of `changethis`.
+This project is licensed under the MIT License.
 
-You have to change them with a secret key, to generate secret keys you can run the following command:
+## 🙏 Acknowledgments
 
-```bash
-python -c "import secrets; print(secrets.token_urlsafe(32))"
-```
+- Built on [Full Stack FastAPI Template](https://github.com/fastapi/full-stack-fastapi-template)
+- Payment integration powered by [Razorpay](https://razorpay.com/)
 
-Copy the content and use that as password / secret key. And run that again to generate another secure key.
+---
 
-## How To Use It - Alternative With Copier
-
-This repository also supports generating a new project using [Copier](https://copier.readthedocs.io).
-
-It will copy all the files, ask you configuration questions, and update the `.env` files with your answers.
-
-### Install Copier
-
-You can install Copier with:
-
-```bash
-pip install copier
-```
-
-Or better, if you have [`pipx`](https://pipx.pypa.io/), you can run it with:
-
-```bash
-pipx install copier
-```
-
-**Note**: If you have `pipx`, installing copier is optional, you could run it directly.
-
-### Generate a Project With Copier
-
-Decide a name for your new project's directory, you will use it below. For example, `my-awesome-project`.
-
-Go to the directory that will be the parent of your project, and run the command with your project's name:
-
-```bash
-copier copy https://github.com/fastapi/full-stack-fastapi-template my-awesome-project --trust
-```
-
-If you have `pipx` and you didn't install `copier`, you can run it directly:
-
-```bash
-pipx run copier copy https://github.com/fastapi/full-stack-fastapi-template my-awesome-project --trust
-```
-
-**Note** the `--trust` option is necessary to be able to execute a [post-creation script](https://github.com/fastapi/full-stack-fastapi-template/blob/master/.copier/update_dotenv.py) that updates your `.env` files.
-
-### Input Variables
-
-Copier will ask you for some data, you might want to have at hand before generating the project.
-
-But don't worry, you can just update any of that in the `.env` files afterwards.
-
-The input variables, with their default values (some auto generated) are:
-
-- `project_name`: (default: `"FastAPI Project"`) The name of the project, shown to API users (in .env).
-- `stack_name`: (default: `"fastapi-project"`) The name of the stack used for Docker Compose labels and project name (no spaces, no periods) (in .env).
-- `secret_key`: (default: `"changethis"`) The secret key for the project, used for security, stored in .env, you can generate one with the method above.
-- `first_superuser`: (default: `"admin@example.com"`) The email of the first superuser (in .env).
-- `first_superuser_password`: (default: `"changethis"`) The password of the first superuser (in .env).
-- `smtp_host`: (default: "") The SMTP server host to send emails, you can set it later in .env.
-- `smtp_user`: (default: "") The SMTP server user to send emails, you can set it later in .env.
-- `smtp_password`: (default: "") The SMTP server password to send emails, you can set it later in .env.
-- `emails_from_email`: (default: `"info@example.com"`) The email account to send emails from, you can set it later in .env.
-- `postgres_password`: (default: `"changethis"`) The password for the PostgreSQL database, stored in .env, you can generate one with the method above.
-- `sentry_dsn`: (default: "") The DSN for Sentry, if you are using it, you can set it later in .env.
-
-## Backend Development
-
-Backend docs: [backend/README.md](./backend/README.md).
-
-## Frontend Development
-
-Frontend docs: [frontend/README.md](./frontend/README.md).
-
-## Deployment
-
-Deployment docs: [deployment.md](./deployment.md).
-
-## Development
-
-General development docs: [development.md](./development.md).
-
-This includes using Docker Compose, custom local domains, `.env` configurations, etc.
-
-## Release Notes
-
-Check the file [release-notes.md](./release-notes.md).
-
-## License
-
-The Full Stack FastAPI Template is licensed under the terms of the MIT license.
+**Ready to accept payments?** 🚀 Clone this repo, add your Razorpay keys, and start processing payments in minutes!
